@@ -35,9 +35,8 @@ This project proposes a novel **locally learnable activation function** based on
 ├── model.py                   # Neural network models with/without learnable activations
 ├── permuted_mnist.py           # Permuted MNIST dataset creation
 ├── train_eval_mnist.py         # Training and evaluation on continual MNIST tasks
-├── plot_mnist_results.py       # Visualization of forgetting curves (MNIST)
-├── toy_regression.py           # Regression task with Gaussian peaks (Toy dataset)
-├── utils.py                    # Common utilities (seeding, optimizer setups)
+├── plot_mnist_results.ipynb       # Visualization of forgetting curves (MNIST)
+├── toy_regression.ipynb           # Regression task with Gaussian peaks (Toy dataset)
 └── README.md                   
 ```
 
@@ -65,7 +64,8 @@ In this implementation:
 
 **Findings**:
 - **Forgetting curves**: Plot the evolution of accuracy after learning each task.
-![Forgetting curves](images/forgetting_curves.png)
+![Forgetting curves](images/forgetting1_mnist.png)
+![Training timeline](images/forgetting2_mnist.png)
 - **Training timeline**: Plot per-task accuracies epoch-by-epoch to observe forgetting behavior.
 ![Training timeline](images/training_timeline.png)
 - ReLU networks **forget** old tasks significantly after learning new ones.
