@@ -23,28 +23,28 @@ def fit(inputs, targets, model, optimizer, val_inputs=None, val_targets=None, pa
         loss.backward()
         optimizer.step()
 
+def dataset():
+    datasets = []
+    n_peak = 5
+    n_num_per_peak = 100
+    n_sample = n_peak * n_num_per_peak
+    
+    x_grid = torch.linspace(-1,1,steps=n_sample)
+    x_centers = 2/n_peak * (np.arange(n_peak) - n_peak/2+0.5)
+    x_sample = torch.stack([torch.linspace(-1/n_peak,1/n_peak,steps=n_num_per_peak)+center for center in x_centers]).reshape(-1,)
+    
+    y = 0.
+    for center in x_centers:
+        y += torch.exp(-(x_grid-center)**2*300)
+    y_sample = 0.
+    for center in x_centers:
+        y_sample += torch.exp(-(x_sample-center)**2*300)
+    
+    plt.plot(x_grid.detach().numpy(), y.detach().numpy())
+    plt.scatter(x_sample.detach().numpy(), y_sample.detach().numpy())
 
-datasets = []
-n_peak = 5
-n_num_per_peak = 100
-n_sample = n_peak * n_num_per_peak
 
-x_grid = torch.linspace(-1,1,steps=n_sample)
-x_centers = 2/n_peak * (np.arange(n_peak) - n_peak/2+0.5)
-x_sample = torch.stack([torch.linspace(-1/n_peak,1/n_peak,steps=n_num_per_peak)+center for center in x_centers]).reshape(-1,)
-
-y = 0.
-for center in x_centers:
-    y += torch.exp(-(x_grid-center)**2*300)
-y_sample = 0.
-for center in x_centers:
-    y_sample += torch.exp(-(x_sample-center)**2*300)
-
-plt.plot(x_grid.detach().numpy(), y.detach().numpy())
-plt.scatter(x_sample.detach().numpy(), y_sample.detach().numpy())
-
-
-def regression_experiment(model, optimizer):
+def regression_experiment(x_sample, x_grid, model, optimizer):
     ys = []
     for group_id in range(n_peak):
         dataset = {}
