@@ -118,7 +118,6 @@ python toy_regression.py
 
 For any questions or suggestions, please reach out to:
 
-- **Mahdi Razi Gandomani**  
 - **Email**: [mahdi.razi@aut.ac.ir]
 
 ---
