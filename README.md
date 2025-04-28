@@ -5,8 +5,8 @@ This repository contains the implementation of my undergraduate thesis:
 
 **Title**:  
 **"Using Learnable B-Spline Activation Functions to Address Catastrophic Forgetting in Neural Networks"**  
-**Author**: Mahdi Razavi Gandomani  
-**Supervisors**: Dr. Ali Mohaddeseh Khorasani, Dr. Zahed Rahmati  
+**Author**: Mahdi Razi Gandomani  
+**Supervisors**: Dr. Ali Mohaddeseh Khorasani
 **Institution**: Amirkabir University of Technology (Tehran Polytechnic)  
 **Date**: April 2025 (Farvardin 1404)
 
@@ -38,15 +38,14 @@ This project proposes a novel **locally learnable activation function** based on
 ├── plot_mnist_results.py       # Visualization of forgetting curves (MNIST)
 ├── toy_regression.py           # Regression task with Gaussian peaks (Toy dataset)
 ├── utils.py                    # Common utilities (seeding, optimizer setups)
-├── README.md                   # (You're reading this!)
-└── AUTthesis.pdf               # Full thesis document (Persian)
+└── README.md                   # 
 ```
 
 ---
 
 ## 🧠 Learnable B-Spline Activation Function
 
-Traditional activation functions (e.g., ReLU, Tanh) are **global** — any small change affects the whole input space.  
+Traditional activation functions (e.g., ReLU, Tanh) are **global** — and affect the whole input space.  
 **B-splines**, in contrast, are **locally supported**: a change in one region minimally affects others.
 
 In this implementation:
@@ -73,7 +72,7 @@ Implementation highlights:
 
 **Findings**:
 - ReLU networks **forget** old tasks significantly after learning new ones.
-- B-Spline networks **preserve** much higher accuracy on previous tasks.
+- B-Spline networks **preserve** higher accuracy on previous tasks.
 
 ### 2. Gaussian Peaks Regression (Toy Task)
 
@@ -85,7 +84,7 @@ Implementation highlights:
 
 **Findings**:
 - B-Spline models maintain **better retention** of older peaks.
-- ReLU models **overfit** to new peaks and **forget** previous ones entirely.
+- ReLU models **overfit** to new peaks and **forget** previous ones almost entirely.
 
 ---
 
@@ -128,18 +127,12 @@ python toy_regression.py
 
 ---
 
-## 📜 Thesis Document
-
-For detailed theoretical background, motivations, and full experimental setup, please see [AUTthesis.pdf](./AUTthesis.pdf).
-
----
-
 
 ## 📬 Contact
 
-For any questions, please reach out to:
+For any questions or suggestions, please reach out to:
 
-- **Mahdi Razavi Gandomani**  
+- **Mahdi Razi Gandomani**  
 - **Email**: [mahdi.razi@aut.ac.ir]
 
 ---
