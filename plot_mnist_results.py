@@ -2,6 +2,11 @@
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import numpy as np
+from models import SimpleNN
+from train_eval_mnist import mnist_experiment
+
+epoch_accuracies1, accuracies1 = mnist_experiment(SimpleNN(input_size, hidden_size, output_size).to(device))
+epoch_accuracies2, accuracies2 = mnist_experiment(SimpleNN(input_size, hidden_size, output_size, learnable=True).to(device))
 
 def plot(accuracies):
   # Plot forgetting
