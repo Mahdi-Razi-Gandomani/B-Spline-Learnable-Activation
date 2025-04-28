@@ -3,6 +3,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 import numpy as np
 import matplotlib.pyplot as plt
+from permuted_mnist import get_permuted_mnist_tasks
 
 input_size = 28 * 28
 hidden_size = 256
@@ -56,6 +57,3 @@ def mnist_experiment(model):
       t = train(model, task['train'], optimizer, task_idx, epoch_accuracies)
       accuracies.append(t)
   return epoch_accuracies, accuracies
-
-epoch_accuracies1, accuracies1 = mnist_experiment(NN(input_size, hidden_size, output_size).to(device))
-epoch_accuracies2, accuracies2 = mnist_experiment(NN(input_size, hidden_size, output_size, learnable=True).to(device))
