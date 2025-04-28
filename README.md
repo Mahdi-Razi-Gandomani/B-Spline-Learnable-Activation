@@ -64,10 +64,10 @@ In this implementation:
 
 **Findings**:
 - **Forgetting curves**: Plot the evolution of accuracy after learning each task.
-![Forgetting curves](images/forgetting1_mnist.png)
-![Training timeline](images/forgetting2_mnist.png)
+![Forgetting curves](results/forgetting1_mnist.png)
+![Training timeline](results/forgetting2_mnist.png)
 - **Training timeline**: Plot per-task accuracies epoch-by-epoch to observe forgetting behavior.
-![Training timeline](images/training_timeline.png)
+![Training timeline](results/training_timeline.png)
 - ReLU networks **forget** old tasks significantly after learning new ones.
 - B-Spline networks **preserve** higher accuracy on previous tasks.
 
@@ -81,7 +81,7 @@ In this implementation:
 
 **Findings**:
 - **Regression fitting**: Visualize learned functions after each sequential regression task.
-![Regression fitting](images/regression_fitting.png)
+![Regression fitting](results/regression_fitting.png)
 - B-Spline model maintain **better retention** of older peaks.
 - ReLU model **overfit** to new peaks and **forget** previous ones almost entirely.
 
