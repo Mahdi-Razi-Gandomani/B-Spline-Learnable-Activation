@@ -1,5 +1,3 @@
-
-
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 def set_seed(seed):
     random.seed(seed)
@@ -46,7 +44,7 @@ plt.plot(x_grid.detach().numpy(), y.detach().numpy())
 plt.scatter(x_sample.detach().numpy(), y_sample.detach().numpy())
 
 
-def foo(model, optimizer):
+def regression_experiment(model, optimizer):
     ys = []
     for group_id in range(n_peak):
         dataset = {}
@@ -58,20 +56,3 @@ def foo(model, optimizer):
         y_pred = model(x_grid[:,None])
         ys.append(y_pred.detach().numpy()[:,0])
     return ys
-
-ys2 = foo(Model().to(device), torch.optim.SGD)
-ys1 = foo(Base().to(device), torch.optim.Adam)
-
-
-def bar(ys):
-    # Plotting
-    plt.subplots(1, n_peak, figsize=(15, 2))
-    plt.subplots_adjust(wspace=0.25, hspace=0)
-    for i in range(1,n_peak+1):
-        plt.subplot(1,n_peak,i)
-        plt.plot(x_grid.detach().numpy(), y.detach().numpy(), color='black', alpha=0.1)
-        plt.plot(x_grid.detach().numpy(), ys[i-1], color='black')
-        plt.xlim(-1,1)
-        plt.ylim(-1,2)
-bar(ys2)
-bar(ys1)
