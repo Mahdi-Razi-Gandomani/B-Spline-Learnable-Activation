@@ -37,7 +37,6 @@ This project proposes a novel **locally learnable activation function** based on
 ├── train_eval_mnist.py         # Training and evaluation on continual MNIST tasks
 ├── plot_mnist_results.py       # Visualization of forgetting curves (MNIST)
 ├── toy_regression.py           # Regression task with Gaussian peaks (Toy dataset)
-├── utils.py                    # Common utilities (seeding, optimizer setups)
 └── README.md                   
 ```
 
