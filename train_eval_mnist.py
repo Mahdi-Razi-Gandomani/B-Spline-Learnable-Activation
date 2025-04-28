@@ -5,9 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from permuted_mnist import get_permuted_mnist_tasks
 
-input_size = 28 * 28
-hidden_size = 256
-output_size = 10
+
 num_tasks = 3
 epochs = 5
 batch_size = 64
