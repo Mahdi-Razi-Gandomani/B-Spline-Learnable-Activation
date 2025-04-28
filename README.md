@@ -69,7 +69,10 @@ In this implementation:
   - Models with B-Spline activations demonstrate much flatter forgetting curves, indicating stronger retention of previously learned knowledge.
 
 ![Forgetting curves](results/forgetting1_mnist.png)
-![Training timeline](results/forgetting2_mnist.png)
+<div align="center">
+  <img src="results/forgetting2_mnist.png" alt="Training timeline">
+</div>
+
 
 - **Training timeline**: Plot per-task accuracies epoch-by-epoch to observe forgetting behavior.
   - This visualization tracks accuracy on each task throughout all training epochs.
