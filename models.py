@@ -3,9 +3,9 @@ import torch.nn.functional as F
 from bspline_activation import LearnableBSplineActivation
 
 
-class NN(nn.Module):
+class SimpleNN(nn.Module):
     def __init__(self, input_size, hidden_size, output_size, learnable=False):
-        super(NN, self).__init__()
+        super(SimpleNN, self).__init__()
         self.fc1 = nn.Linear(input_size, hidden_size)
         self.fc2 = nn.Linear(hidden_size, output_size)
         self.activation = LearnableBSplineActivation(start_point=-2, end_point=2) if learnable else F.relu
@@ -18,7 +18,7 @@ class NN(nn.Module):
 
 class BaseRegression(nn.Module):
     def __init__(self):
-        super(Base, self).__init__()
+        super(BaseRegression, self).__init__()
         self.fc1 = nn.Linear(1, 64)
         self.fc2 = nn.Linear(64, 32)
         self.fc3 = nn.Linear(32, 32)
@@ -33,7 +33,7 @@ class BaseRegression(nn.Module):
 
 class LearnableRegression(nn.Module):
     def __init__(self):
-        super(Model, self).__init__()
+        super(LearnableRegression, self).__init__()
         self.fc1 = nn.Linear(1, 64)
         self.fc2 = nn.Linear(64, 32)
         self.fc3 = nn.Linear(32, 1)
