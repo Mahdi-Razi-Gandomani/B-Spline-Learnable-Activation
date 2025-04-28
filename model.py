@@ -1,5 +1,6 @@
 import torch.nn as nn
 import torch.nn.functional as F
+from bspline_activation import LearnableBSplineActivation
 
 
 class NN(nn.Module):
