@@ -68,17 +68,22 @@ In this implementation:
   - Models with ReLU activations experience steep declines in task accuracy after each new task, a clear sign of catastrophic forgetting.
   - Models with B-Spline activations demonstrate much flatter forgetting curves, indicating stronger retention of previously learned knowledge.
 
-![Forgetting curves](results/forgetting1_mnist.png)
-<div align="center">
-  <img src="results/forgetting2_mnist.png" alt="Training timeline">
-</div>
+<p align="center">
+  <img src="results/forgetting1_mnist.png" alt="Forgetting curves" width="45%"/>
+  <img src="results/forgetting2_mnist.png" alt="Forgetting curves 2" width="45%"/>
+</p>
+
 
 
 - **Training timeline**: Plot per-task accuracies epoch-by-epoch to observe forgetting behavior.
   - This visualization tracks accuracy on each task throughout all training epochs.
   - It highlights that B-Spline activations enable the network to learn new tasks while maintaining more stable performance on earlier ones, compared to the sharp performance drops observed in ReLU models.
     
-![Training timeline](results/training_timeline.png)
+
+<div align="center">
+  <img src="results/training_timeline.png" alt="Training timeline">
+</div>
+
 
 - ReLU networks **forget** old tasks significantly after learning new ones.
 - B-Spline networks **preserve** higher accuracy on previous tasks.
