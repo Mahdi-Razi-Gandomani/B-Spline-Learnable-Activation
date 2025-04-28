@@ -23,11 +23,8 @@ def plot(accuracies):
   plt.legend()
   plt.show()
 
-
 plot(accuracies1)
 plot(accuracies2)
-
-
 
 epochs_per_task = 5
 total_epochs = num_tasks * epochs_per_task
