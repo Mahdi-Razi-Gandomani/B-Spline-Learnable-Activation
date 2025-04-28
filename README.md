@@ -37,6 +37,7 @@ This project proposes a novel **locally learnable activation function** based on
 ├── train_eval_mnist.py         # Training and evaluation on continual MNIST tasks
 ├── plot_mnist_results.py       # Visualization of forgetting curves (MNIST)
 ├── toy_regression.py           # Regression task with Gaussian peaks (Toy dataset)
+├── utils.py                    # Common utilities (seeding, optimizer setups)
 └── README.md                   
 ```
 
@@ -44,19 +45,12 @@ This project proposes a novel **locally learnable activation function** based on
 
 ## 🧠 Learnable B-Spline Activation Function
 
-Traditional activation functions (e.g., ReLU, Tanh) are **global** — and affect the whole input space.  
-**B-splines**, in contrast, are **locally supported**: a change in one region minimally affects others.
+Traditional activation functions (e.g., ReLU, Tanh) are **global** and affect the entire input space. In contrast, B-splines are **locally supported**: a change in one region can leave other regions intact, helping to mitigate forgetting of previously learned tasks.
 
 In this implementation:
 - The activation is a **trainable weighted sum of B-spline basis functions**.
 - We optimize the **control points** during network training.
 - Enables **local adaptation** to new tasks with **minimal interference** to old tasks.
-
-Implementation highlights:
-- Adjustable number of **control points**.
-- Configurable **degree** and **knot spacing**.
-- Fully differentiable and compatible with standard optimizers.
-
 ---
 
 ## 🔥 Experiments
@@ -70,6 +64,8 @@ Implementation highlights:
 - **Metric**: Classification Accuracy across tasks after each training stage.
 
 **Findings**:
+- **Forgetting curves**: Plot the evolution of accuracy after learning each task.
+- **Training timeline**: Plot per-task accuracies epoch-by-epoch to observe forgetting behavior.
 - ReLU networks **forget** old tasks significantly after learning new ones.
 - B-Spline networks **preserve** higher accuracy on previous tasks.
 
@@ -82,18 +78,9 @@ Implementation highlights:
 - **Metric**: Regression accuracy on earlier peaks after training new ones.
 
 **Findings**:
+- **Regression fitting**: Visualize learned functions after each sequential regression task.
 - B-Spline models maintain **better retention** of older peaks.
 - ReLU models **overfit** to new peaks and **forget** previous ones almost entirely.
-
----
-
-## 📈 Results Visualization
-
-- **Forgetting curves**: Plot the evolution of accuracy after learning each task.
-- **Training timeline**: Plot per-task accuracies epoch-by-epoch to observe forgetting behavior.
-- **Regression fitting**: Visualize learned functions after each sequential regression task.
-
-Examples of visual outputs are generated using `matplotlib`.
 
 ---
 
