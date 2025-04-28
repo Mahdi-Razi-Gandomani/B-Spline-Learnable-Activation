@@ -82,6 +82,7 @@ In this implementation:
 **Findings**:
 - **Regression fitting**: Visualize learned functions after each sequential regression task.
 ![Regression fitting](results/regression_fitting.png)
+![Regression fitting](results/regression_fitting2.png)
 - B-Spline model maintain **better retention** of older peaks.
 - ReLU model **overfit** to new peaks and **forget** previous ones almost entirely.
 
