@@ -56,14 +56,13 @@ In this implementation:
 
 ### 1. Permuted MNIST
 
-- **Task**: Sequential learning of 3 different permutations of MNIST digits.
+- **Task**: Sequential learning of different permutations of MNIST digits.
 - **Comparison**:  
   - **Baseline**: MLP with ReLU activations  
   - **Proposed**: MLP with Learnable B-Spline activations
 - **Metric**: Classification Accuracy across tasks after each training stage.
 
-**Findings**:
-- **Forgetting curves**: Plot the evolution of accuracy after learning each task.
+**Results**:
   - The first plot shows how accuracy on previous tasks drops as new tasks are learned.
   - Models with ReLU activations experience steep declines in task accuracy after each new task, a clear sign of catastrophic forgetting.
   - Models with B-Spline activations demonstrate much flatter forgetting curves, indicating stronger retention of previously learned knowledge.
@@ -74,8 +73,6 @@ In this implementation:
 </p>
 
 
-
-- **Training timeline**: Plot per-task accuracies epoch-by-epoch to observe forgetting behavior.
   - This visualization tracks accuracy on each task throughout all training epochs.
   - It highlights that B-Spline activations enable the network to learn new tasks while maintaining more stable performance on earlier ones, compared to the sharp performance drops observed in ReLU models.
     
@@ -85,12 +82,9 @@ In this implementation:
 </div>
 
 
-- ReLU networks **forget** old tasks significantly after learning new ones.
-- B-Spline networks **preserve** higher accuracy on previous tasks.
-
 ### 2. Gaussian Peaks Regression (Toy Task)
 
-- **Task**: Sequential modeling of 5 separated Gaussian peaks.
+- **Task**: Sequential modeling of separated Gaussian peaks.
 - **Comparison**:
   - **Baseline**: MLP with ReLU activations
   - **Proposed**: MLP with Learnable B-Spline activations
@@ -100,18 +94,13 @@ In this implementation:
 The toy regression task was adapted and modified from an existing repository:  
 👉 [Original Source Repository](https://github.com/KindXiaoming/pykan)
 
-**Findings**:
-
-- **Regression fitting**:
-  - These plots show the model’s prediction curves after sequentially learning each Gaussian peak.
+**Resultes**:
+  - These plots show the model’s prediction curves after sequentially learning each peak.
   - ReLU networks show strong overfitting to the most recently learned peaks, almost entirely forgetting previously fitted peaks.
   - B-Spline networks retain better fitting of earlier peaks even after multiple new peaks are learned, demonstrating **significantly reduced catastrophic forgetting**.
 
   ![Regression fitting](results/regression_fitting.png)
   ![Regression fitting](results/regression_fitting2.png)
-
-  - B-Spline activations allow **localized adaptation**, enabling the model to adjust for new tasks without disrupting earlier learned mappings.
-  - ReLU-based models, lacking this local flexibility, experience major interference when new tasks are introduced.
 
 ---
 
@@ -133,8 +122,8 @@ pip install torch torchvision numpy matplotlib
 ## 🚀 Running the Code
 
 For running and visualizing the experiments:
-- Simply run `plot_mnist_results.ipynb` for the **Permuted MNIST** forgetting analysis.
-- Simply run `toy_regression.ipynb` for the **Gaussian Peaks Regression** fitting experiment.
+- Simply run the cells in `plot_mnist_results.ipynb` for the **Permuted MNIST** forgetting analysis.
+- Simply run the cells in `toy_regression.ipynb` for the **Gaussian Peaks Regression** fitting experiment.
 
 
 ---
