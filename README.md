@@ -73,7 +73,7 @@ In this implementation:
 </p>
 
 
-  - This visualization tracks accuracy on each task throughout all training epochs.
+  - The second visualization tracks accuracy on each task throughout all training epochs.
   - It highlights that B-Spline activations enable the network to learn new tasks while maintaining more stable performance on earlier ones, compared to the sharp performance drops observed in ReLU models.
     
 
@@ -99,8 +99,8 @@ The toy regression task was adapted and modified from an existing repository:
   - ReLU networks show strong overfitting to the most recently learned peaks, almost entirely forgetting previously fitted peaks.
   - B-Spline networks retain better fitting of earlier peaks even after multiple new peaks are learned, demonstrating **significantly reduced catastrophic forgetting**.
 
-  ![Regression fitting](results/regression_fitting.png)
   ![Regression fitting](results/regression_fitting2.png)
+  ![Regression fitting](results/regression_fitting.png)
 
 ---
 
