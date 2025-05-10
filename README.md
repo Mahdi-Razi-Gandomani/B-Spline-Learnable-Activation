@@ -22,7 +22,7 @@ This project proposes a novel **locally learnable activation function** based on
 - Integrated B-spline activations into a feedforward neural network architecture.
 - Conducted experiments on:
   - **Permuted MNIST continual learning** tasks.
-  - **Toy regression tasks** involving **separated Gaussian peaks**.
+  - **Toy regression tasks**
 - Compared models using traditional activations (**ReLU**) versus **learnable B-spline activations**.
 
 ---
@@ -63,9 +63,9 @@ In this implementation:
 - **Metric**: Classification Accuracy across tasks after each training stage.
 
 **Results**:
-  - The first plot shows how accuracy on previous tasks drops as new tasks are learned.
-  - Models with ReLU activations experience steep declines in task accuracy after each new task, a clear sign of catastrophic forgetting.
-  - Models with B-Spline activations demonstrate much flatter forgetting curves, indicating stronger retention of previously learned knowledge.
+  - These plots shows how accuracy on previous tasks drops as new tasks are learned.
+  - Model with ReLU activations show sharp accuracy drops on old tasks after learning new ones, a clear sign of catastrophic forgetting.
+  - Modes with B-Spline activations demonstrate much flatter forgetting curves, indicating stronger resistance to forgetting.
 
 <p align="center">
   <img src="results/forgetting1_mnist.png" alt="Forgetting curves" width="45%"/>
@@ -82,9 +82,9 @@ In this implementation:
 </div>
 
 
-### 2. Gaussian Peaks Regression (Toy Task)
+### 2. Peaks Regression (Toy Task)
 
-- **Task**: Sequential modeling of separated Gaussian peaks.
+- **Task**: Sequential modeling of separated peaks.
 - **Comparison**:
   - **Baseline**: MLP with ReLU activations
   - **Proposed**: MLP with Learnable B-Spline activations
@@ -104,26 +104,11 @@ The toy regression task was adapted and modified from an existing repository:
 
 ---
 
-## 🛠️ Installation
-
-**Requirements**:
-- Python 3.8+
-- PyTorch 2.0+
-- torchvision
-- numpy
-- matplotlib
-
-```bash
-pip install torch torchvision numpy matplotlib
-```
-
----
-
 ## 🚀 Running the Code
 
 For running and visualizing the experiments:
 - Simply run the cells in `plot_mnist_results.ipynb` for the **Permuted MNIST** forgetting analysis.
-- Simply run the cells in `toy_regression.ipynb` for the **Gaussian Peaks Regression** fitting experiment.
+- Simply run the cells in `toy_regression.ipynb` for the **Peaks Regression** fitting experiment.
 
 
 ---
